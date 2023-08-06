@@ -29,13 +29,6 @@ resource "null_resource" "get_creds" {
   }
 }
 
-resource "null_resource" "kubectl_apply" {
-  depends_on = [helm_release.cert_manager]
-  provisioner "local-exec" {
-    command = "kubectl apply -f manifests/cluster-issuer.yaml"
-  }
-}
-
 provider "helm" {
   kubernetes {
     config_path = "~/.kube/config"

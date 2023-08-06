@@ -18,21 +18,17 @@ variable "TENANT_ID" {
 }
 
 variable "resource_group_name" {
-  type    = string
-  default = "BackstageDeployments"
+  type = string
 }
 
 variable "prefix" {
-  type    = string
-  default = "backstage"
+  type = string
 }
 
 variable "kubernetes_cluster_name" {
-  type    = string
-  default = "BackstageCluster"
+  type = string
 }
 
 variable "kubernetes_cluster_dns_prefix" {
-  type    = string
-  default = "BackstageCluster"
+  type = string
 }

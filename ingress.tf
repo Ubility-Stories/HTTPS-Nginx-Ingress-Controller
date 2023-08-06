@@ -19,18 +19,3 @@ resource "helm_release" "ingress" {
     value = azurerm_public_ip.aks_public_ip.ip_address
   }
 }
-
-resource "helm_release" "cert_manager" {
-  depends_on       = [helm_release.ingress]
-  name             = "${var.prefix}-nginx"
-  repository       = "https://charts.jetstack.io"
-  chart            = "cert-manager"
-  namespace        = "cert-manager"
-  create_namespace = true
-  version          = "v1.11.2"
-
-  set {
-    name  = "installCRDs"
-    value = true
-  }
-}
